@@ -1,0 +1,25 @@
+﻿<Window x:Class="TravelService.View.TourStats"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tour Statistics" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding SelectedTour.Name}" 
+                   FontSize="24" FontWeight="Bold" Margin="10"/>
+
+        <DataGrid x:Name="Stats" Grid.Row="1" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding }">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Under 18" Binding="{Binding Under18Count}" />
+                <DataGridTextColumn Header="Between 18 and 50" Binding="{Binding Between18And50Count}" />
+                <DataGridTextColumn Header="Over 50" Binding="{Binding Over50Count}" />
+                <DataGridTextColumn Header="With Voucher %" Binding="{Binding WithVoucherPercentage}" />
+                <DataGridTextColumn Header="Without Voucher %" Binding="{Binding WithoutVoucherPercentage}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

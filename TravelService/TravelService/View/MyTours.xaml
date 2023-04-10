@@ -1,0 +1,69 @@
+﻿<Window x:Class="TravelService.View.MyTours"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelService.View"
+        mc:Ignorable="d"
+        Title="MyTours" Height="436" Width="740">
+    <Grid Height="413" VerticalAlignment="Top">
+
+
+        <DataGrid Grid.Row="0" x:Name="allTours"
+                  ItemsSource="{Binding Path=FutureTours, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedTour}" Margin="0,54,0,109">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Location" Binding="{Binding Location.CityAndCountry}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Language" Binding="{Binding Language.Name}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Maximum number of guests" Binding="{Binding MaxGuestNumber}" Width="auto"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Checkpoints" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox  x:Name="listBoxCheckPoint" Height="100" ItemsSource="{Binding Path=CheckPoints}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Date and time" Binding="{Binding TourStart}" Width="auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Duration in hours" Binding="{Binding Duration}" Width="auto"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Images">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Pictures}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}" Width="120" Height="100" Margin="5" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Margin="-13,377,13,-377" RenderTransformOrigin="0.5,0.5" Width="100" Height="20">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.173"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.657"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+        </StackPanel>
+        <Button IsDefault="True" Click="CancelTour_Click" Content="Cancel Tour" Margin="289,336,344,29" />
+
+    </Grid>
+</Window>

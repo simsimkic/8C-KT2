@@ -1,0 +1,92 @@
+﻿<Window x:Class="TravelService.View.AccommodationReservationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelService.View"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="AccommodationReservationView" WindowStartupLocation="CenterScreen" Height="380" Width="630">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <AdornedElementPlaceholder x:Name="textBox">
+                    <Border BorderBrush="Red"
+                            BorderThickness="1"/>
+                </AdornedElementPlaceholder>
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid Height="340" Width="570">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="260"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Width="250" Height="280">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Start date" Grid.Row="0" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Label Content="End date" Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Label Content="Days of staying" Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <DatePicker x:Name="startDatePicker" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></DatePicker>
+            <DatePicker x:Name="endDatePicker" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></DatePicker>
+            <TextBox x:Name="daysOfStayingBox" Text="{Binding Path=LengthOfStay, UpdateSourceTrigger=PropertyChanged}"
+                     Grid.Row="2" Grid.Column="2" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Button x:Name="CheckAvailability" Margin="0,20,0,0" Width="200" Height="45" Click="CheckAvailability_Click">Check Availability</Button>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="Available dates" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" FontSize="17" ></Label>
+                <TextBlock x:Name="NotificationBlock" Foreground="Red" Margin="0,20,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1" >
+                <DataGrid ItemsSource="{Binding AvailableDatesPair}" SelectedItem="{Binding SelectedAvailableDatePair}"  AutoGenerateColumns="False" Width="260">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Check-in" Binding="{Binding Item1, StringFormat='{}{0:d}'}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Checkout" Binding="{Binding Item2, StringFormat='{}{0:d}'}"  Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Guest Number" Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Separator Width="25" Background="White"></Separator>
+                    <TextBox x:Name="guestNumberBox" Text="{Binding Path=GuestNumber, UpdateSourceTrigger=PropertyChanged}"
+                             Grid.Row="2" Grid.Column="2" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+               <Button x:Name="Reserve" Margin="0,20,0,0" Width="150" Height="45" Click="Reserve_Click">Reserve</Button>
+               <Separator Width="30" Background="White"></Separator>
+               <Button x:Name="CloseReservations" Margin="0,20,0,0" Width="80" Height="30" Click="CloseReservations_Click">Close</Button>
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</Window>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="TravelService.View.JoinTourView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelService.View"
+        mc:Ignorable="d"
+        Title="JoinTourView" Height="350" Width="346">
+    <Grid Margin="9,0,0,25">
+        <ListView x:Name="ListCheckBox" Margin="10,9,24,100" ItemsSource="{Binding FilteredCheckPoint}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Active}" Content="{Binding Name}" IsEnabled="False" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Join" Click ="joinTourButton_Click" HorizontalAlignment="Left" Height="32" Margin="50,236,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.072,0.926"/>
+    </Grid>
+</Window>

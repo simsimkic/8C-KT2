@@ -1,0 +1,38 @@
+﻿<Window x:Class="TravelService.View.GuestRatingOverview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelService.View"
+        mc:Ignorable="d"
+        Title="GuestRatingOverview" Height="370" Width="400"
+             WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="210"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"  Text="Guest data to be evaluated" Foreground="DarkSlateBlue" FontWeight="Bold" TextAlignment="Center" Margin="0,17"  FontSize="15" ></TextBlock>
+        <DataGrid  VerticalAlignment="Center" ItemsSource="{Binding Path=UnratedReservations, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedReservation, UpdateSourceTrigger=PropertyChanged}"
+                   AutoGenerateColumns="False" IsReadOnly="True"
+                   Width="330" Height="200" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="170" Binding="{Binding Guest1.Username}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Accommodation"  Width="150" Binding="{Binding AccommodationName}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Grid.Row="2" FlowDirection="LeftToRight" Margin="10,10,5,5">
+            <Separator Width="75" Background="White"></Separator>
+            <Button Content ="Rate it" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="23" Margin="20, 5, 20, 5"
+                    Click="Rating_Click"/>
+            <Separator Width="20" Background="White"></Separator>
+            <Button Content="Close" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="23" Margin="20, 5, 20, 5" 
+                    Click="Cancel_Click"/>
+            <Separator Width="80" Background="White"></Separator>
+        </WrapPanel>
+    </Grid>
+</Window>

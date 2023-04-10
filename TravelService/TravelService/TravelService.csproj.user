@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+
+
+    <Compile Update="View\MostVisited.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="View\MyTours.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\OwnerRatingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PastTours.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\RatingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AccommodationReview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\OwnerReview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\OwnerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ReviewsSelectionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="View\JoinTourView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\TourTrackingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\VoucherView.xaml.cs">
+    <SubType>Code</SubType>
+	</Compile>
+    <Compile Update="View\TourStats.xaml.cs">
+    <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AccommodationReview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CheckPointView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EnterCheckPoint.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MostVisited.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MyTours.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\OwnerRatingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PastTours.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RatingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\OwnerReview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\OwnerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ReviewsSelectionView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\JoinTourView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SecondGuestView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TourReservationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\GuestPresence.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MarkAttendence.xaml">
+    </Page>
+    <Page Update="View\TourOverview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Update="View\TourTrackingView.xaml">
+		<SubType>Designer</SubType>
+	</Page>
+    <Page Update="View\TourStats.xaml">
+
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TourView.xaml">
+    </Page>
+    <Page Update="View\AddTour.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\VoucherView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Window1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
